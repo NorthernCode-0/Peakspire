@@ -14,14 +14,14 @@ end
 if workspace:FindFirstChild('Kill') then
 	game:GetService("Workspace").Kill:Remove()
 else
-
+	print('Kill doesnt exist, you probably re-executed script')
 end
 -- GUI
 
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-    Name = "Doomspire ass 2013 (1.1)",
+    Name = "Doomspire ass 2013 (1.2)",
     StartupSound = {
         Toggle = false,
         SoundID = "rbxassetid://6958727243",
@@ -31,7 +31,7 @@ local win = BlekLib:Create({
 
 local TabMain = win:Tab('Main')
 
-TabMain:Label("Will not teleport you if the object doesnt exist!")
+TabMain:Label("Will not teleport you if the object doesnt exist")
 
 TabMain:Button('TP Center', function()
     teleportTO(game:GetService("Workspace").Doomspires.Holder.CFrame + Vector3.new(0,1,0))
@@ -57,7 +57,15 @@ TabMain:Label('Naipsen - Name')
 
 local TabPlayer = win:Tab('Player')
 
+TabPlayer:Label("These values will be reset after death")
 
+TabPlayer:Slider('Walk Speed', 15, 15 , 300 , function(a)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = a
+end)
+
+TabPlayer:Slider('Jump Power', 50, 50, 300 , function(a)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = a
+end)
 
 local TabRedTeleports = win:Tab('Red')
 
@@ -211,8 +219,5 @@ TabYellowTeleports:Button('Bomb Yellow', function()
 	teleportTO(CFrame.new(148.353195, 23.5980701, 8.80283451, -0.0769628212, 8.33949088e-08, -0.997033954, -5.74020831e-08, 1, 8.80739606e-08, 0.997033954, 6.40102442e-08, -0.0769628212))
 	wait(5)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-	teleportTO(CFrame.new(101.490379, 129.197891, -5.37321806, 0.0537350588, 2.93130711e-08, 0.998555243, 8.78240858e-09, 1, -2.98280902e-08, -0.998555243, 1.03725339e-08, 0.0537350588))
-	wait(5)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-	teleportTO(CFrame.new(100.793617, 129.197922, 6.4804759, -0.0634788424, 3.09257047e-08, 0.997983158, -1.30813129e-08, 1, -3.18202673e-08, -0.997983158, -1.50748445e-08, -0.0634788424))
+	teleportTO(CFrame.new(101.557716, 129.197891, -1.01682615, -0.236603707, 7.22571727e-08, 0.971606255, -3.62793209e-08, 1, -8.3203453e-08, -0.971606255, -5.49354588e-08, -0.236603707))
 end)
