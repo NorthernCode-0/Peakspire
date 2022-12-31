@@ -38,7 +38,7 @@ TabMain:Button('TP Center', function()
 end)
 
 TabMain:Button('TP Spectator', function()
-	teleportTO(CFrame.new(6.17046595, 518.997864, 0.72788161, -0.976053834, -5.99389978e-08, -0.217529148, -8.11414225e-08, 1, 8.8537071e-08, 0.217529148, 1.04067567e-07, -0.976053834))
+	teleportTO(CFrame.new(1.45292282, 718.997864, -3.43770289, -0.972771883, -1.22582575e-08, -0.231764659, -4.43603154e-09, 1, -3.42718813e-08, 0.231764659, -3.23106057e-08, -0.972771883))
 end)
 
 TabMain:Button('Suicide', function()
@@ -221,3 +221,11 @@ TabYellowTeleports:Button('Bomb Yellow', function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
 	teleportTO(CFrame.new(101.557716, 129.197891, -1.01682615, -0.236603707, 7.22571727e-08, 0.971606255, -3.62793209e-08, 1, -8.3203453e-08, -0.971606255, -5.49354588e-08, -0.236603707))
 end)
+
+local TabOtherPlayers = win:Tab('Other Players')
+
+for i, player in pairs(game.Players:GetPlayers()) do 
+	TabOtherPlayers:Button('Tp to ' .. player.Name, function()
+		teleportTO(player.Character:FindFirstChild("HumanoidRootPart").CFrame)
+	end)
+end
