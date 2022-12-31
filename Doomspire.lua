@@ -21,7 +21,7 @@ end
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-    Name = "Doomspire ass 2013 (1.2)",
+    Name = "Doomspire ass 2013 (1.3)",
     StartupSound = {
         Toggle = false,
         SoundID = "rbxassetid://6958727243",
